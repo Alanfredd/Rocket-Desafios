@@ -2,23 +2,88 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cafeteria Yuumel</title>
+    <title>Cafeteria Yuumel - Home</title>
     <style>
+        /* CONFIGURAÇÕES GERAIS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f3; /* Rosa claro de fundo */
+            margin: 0;
+            padding: 20px;
+            color: #444;
+        }
+
+        /* --- DESAFIO 7: SOMBRA NO MENU (HEADER) --- */
+        header {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.15); /* Sombra rosada sutil [cite: 13] */
+            margin-bottom: 30px;
+        }
+
+        /* --- DESAFIO 7 & 9: LINKS COM TRANSPARÊNCIA E TRANSIÇÃO --- */
+        nav a, footer a {
+            text-decoration: none;
+            color: #d63384; /* Rosa escuro */
+            font-weight: bold;
+            opacity: 0.5; /* Transparência inicial [cite: 14] */
+            transition: all 0.4s ease; /* Suavidade do movimento [cite: 3] */
+            display: inline-block;
+        }
+
+        nav a:hover, footer a:hover {
+            opacity: 1; /* Totalmente opaco no hover [cite: 14] */
+            color: #ff85a1;
+            transform: translateY(-2px); /* Pequena animação [cite: 3] */
+        }
+
+        /* --- DESAFIO 7 & 8: TABELA ESTILO CARD E ZEBRADA --- */
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
             margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.1); /* [cite: 13] */
+            border-radius: 12px;
+            overflow: hidden;
         }
+
+        /* Pseudo-classe para alternar cores das linhas (Desafio 8) */
+        tbody tr:nth-child(even) {
+            background-color: #fff5f7; /* [cite: 8] */
+        }
+
         th, td {
-            border: 1px solid #444;
+            border: 1px solid #ffe1e9;
             padding: 12px;
             text-align: center;
         }
+
         th {
-            background-color: #f2f2f2;
-            font-weight: bold;
+            background-color: #d63384;
+            color: white;
         }
+
+        /* --- DESAFIO 8: PSEUDO-ELEMENTO DECORATIVO --- */
+        h2 {
+            color: #d63384;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        h2::after {
+            content: ""; /* Linha decorativa via CSS [cite: 8] */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #ff85a1;
+            border-radius: 2px;
+        }
+
         /* Destaque para o status 'Fechado' */
         td[rowspan="2"] {
             background-color: #ffebee;
@@ -30,62 +95,56 @@
 <body>
 
     <header>
-    <img src="assets/yuumel.png" alt="Logo da Cafeteria Yuumel" width="200">
-    <h1>Cafeteria Yuumel</h1>
-    <nav>
-        <a href="index.html">Início</a> | 
-        <a href="contato.html">Contato</a>
-    </nav>
-    <p>Bem-vindo à Cafeteria Yuumel! ...</p>
-</header>
+        <img src="assets/yuumel.png" alt="Logo da Cafeteria Yuumel" width="180">
+        <h1>Cafeteria Yuumel</h1>
+        <nav>
+            <a href="index.html">Início</a> | 
+            <a href="contato.html">Contato</a>
+        </nav>
+        <p>Onde cada grão é moído com carinho e cada xícara transborda amor!</p>
+    </header>
 
     <main>
-        <h2>Bebidas</h2>
-        <ul>
-            <li>
-                Expresso da Gatinha
-                <ul>
-                    <li>Grãos Selecionados</li>
-                    <li>Contém Cafeína e muito amor da Yuumel!</li>
-                </ul>
-            </li>
-            <li>
-                Latte da Gatinha
-                <ul>
-                    <li>Bastante Leite Cremoso</li>
-                    <li>Contém lactose</li>
-                    <li>Contém bastante amor e fofura da Yuumel</li>
-                </ul>
-            </li>
-        </ul>
+        <section>
+            <h2>Bebidas</h2>
+            <ul>
+                <li><strong>Expresso da Gatinha</strong>
+                    <ul>
+                        <li>Grãos Selecionados e moídos na hora</li>
+                        <li>Contém cafeína e o charme da Yuumel!</li>
+                    </ul>
+                </li>
+                <li><strong>Latte da Gatinha</strong>
+                    <ul>
+                        <li>Leite vaporizado super cremoso</li>
+                        <li>Contém lactose e muita fofura</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
-        <h2>Salgados</h2>
-        <ul>
-            <li>
-                Pãozinho da Gatinha
-                <ul>
-                    <li>Feito com farinha de trigo</li>
-                    <li>Feito de maneira artesanal</li>
-                    <li>Contém bastante amor e fofura da Yuumel</li>
-                    <li>Contém glutén e talvez um pelinho tricolor rsrs</li>
-                </ul>
-            </li>
-        </ul>
+        <section>
+            <h2>Salgados & Doces</h2>
+            <ul>
+                <li>
+                    <strong>Pãozinho Artesanal</strong>
+                    <ul>
+                        <li>Feito com farinha premium e muito afeto</li>
+                        <li>Sempre quentinho e crocante</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Bolinho da Casa</strong>
+                    <ul>
+                        <li>Receita secreta com um toque tricolor</li>
+                        <li>Contém bastante amor e fofura da Yuumel</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
-        <h2>Doces</h2>
-        <ul>
-            <li>
-                Bolinho da Gatinha
-                <ul>
-                    <li>Feito com farinha de trigo selecionada</li>
-                    <li>Feito de maneira artesanal</li>
-                    <li>Contém bastante amor e fofura da Yuumel</li>
-                    <li>Pode conter alguns pelinhos tricolor rsrs</li>
-                </ul>
-            </li>
-        </ul>
-
-        <hr> <h3>Horários de Funcionamento</h3>
+        <hr>
+        <h3>Horários de Funcionamento</h3>
         <table>
             <thead>
                 <tr>
@@ -117,18 +176,17 @@
                     <td>14:00 - 18:00</td>
                     <td>14:00 - 18:00</td>
                     <td>14:00 - 18:00</td>
+                    <td>14:00 - 18:00</td>
                 </tr>
             </tbody>
         </table>
     </main>
 
-    <footer>
-    <hr>
-    <p>
-        <strong>Dúvidas ou Encomendas?</strong> 
-        <a href="contato.html">Entre em contato conosco!</a>
-    </p>
-    <p>
-        <a href="https://github.com/Alanfredd">Voltar para o Portfólio Profissional</a>
-    </p>
-</footer>
+    <footer style="text-align: center; margin-top: 40px;">
+        <hr>
+        <p><strong>Dúvidas ou Encomendas?</strong> <a href="contato.html">Fale com a gente!</a></p>
+        <p><a href="https://github.com/Alanfredd">Acesse meu GitHub</a></p>
+    </footer>
+
+</body>
+</html>
