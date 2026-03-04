@@ -1,29 +1,140 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <meta charset="UTF-8">
-        <Title>Meu Portfólio - Davi Almeida</Title>
-        </head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Portfólio - Davi Almeida</title>
+    <style>
+        /* BASE E CORES */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e3f2fd; /* Azul claro de fundo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* DESAFIO 7: CARD COM SOMBRA */
+        .card-portfolio {
+            background-color: #fff;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(33, 150, 243, 0.15); /* Sombra Azul */
+            transition: transform 0.4s ease;
+        }
+
+        .card-portfolio:hover {
+            transform: translateY(-8px);
+        }
+
+        /* FOTO DE PERFIL */
+        img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #2196f3;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #1976d2; margin: 10px 0; }
+
+        /* DESAFIO 8: PSEUDO-ELEMENTO */
+        h2 {
+            font-size: 1.1rem;
+            color: #64b5f6;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "🚀"; 
+            display: block;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        p {
+            line-height: 1.6;
+            text-align: justify;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        /* LISTA DE PROJETOS ESTILIZADA */
+        .projetos-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .projetos-lista strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #1976d2;
+        }
+
+        .projetos-lista a {
+            text-decoration: none;
+            background-color: #f1f8ff;
+            color: #1976d2;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 1px solid #bbdefb;
+            opacity: 0.7; /* Desafio 7: Transparência */
+            transition: all 0.3s ease; /* Desafio 9: Transição */
+        }
+
+        .projetos-lista a:hover {
+            opacity: 1; /* Desafio 7: Opaco no hover */
+            background-color: #2196f3;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* LINK LINKEDIN */
+        .linkedin-btn {
+            color: #1976d2;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .linkedin-btn:hover { text-decoration: underline; }
+    </style>
+</head>
 <body>
-<img src="./assets/eu.png" alt="Foto de Davi." />
-    <h1>Meu nome é Davi</h1>
-    <h2>Estudante da área de Desenvolvimento de Sistemas</h2>
-        <p>
-            Minha jornada na tecnologia começou com uma pergunta simples: <strong>"Como isso funciona?".</strong> 
-            Sempre fui fascinado pelos bastidores da <i>internet</i> e movido pela curiosidade de desvendar 
-            a lógica por trás dos aplicativos e páginas que usamos todos os dias. 
-            Hoje, estudo desenvolvimento de software para deixar de ser apenas um <u>usuário curioso 
-            e me tornar capaz de construir essas mesmas soluções.</u>
-        </p>
+
+    <main class="card-portfolio">
+        <img src="./assets/eu.png" alt="Foto de Davi.">
+        
+        <h1>Davi Almeida</h1>
+        <h2>Estudante de Desenvolvimento de Sistemas</h2>
         
         <p>
-        <strong>Meus Projetos:</strong><br>
-        <a href="https://github.com/Alanfredd/Rocket-Desafios/blob/main/calculadora%20de%20imposto.js" target="_blank">Projeto: Calculadora de Imposto</a><br>
-        <a href="https://github.com/Alanfredd/Rocket-Desafios/blob/main/Desafio%204.js" target="_blank">Projeto: Lista de Compras</a><br>
-        <a href="html-css/cafeteria/index.html">☕ Projeto: Cafeteria Yuumel</a><br>
-        <a href="html-css/tabela-table/index.html">📊 Projeto: Minha Tabela</a><br>
-        <a href="html-css/podcast/index.html">🎙️ Projeto: Meu Podcast</a><br>
-    </p>
-        <a href="https://www.linkedin.com/in/davi-almeida-5b7464330/" target="_blank"> Meu Linkedin</a>
+            Minha jornada na tecnologia começou com uma pergunta simples: <strong>"Como isso funciona?".</strong> 
+            Sempre fui fascinado pelos bastidores da internet e hoje estudo para me tornar capaz de construir minhas próprias soluções.
+        </p>
+
+        <div class="projetos-lista">
+            <strong>Meus Projetos:</strong>
+            <a href="https://github.com/Alanfredd/Rocket-Desafios/blob/main/calculadora%20de%20imposto.js" target="_blank">🧮 Calculadora de Imposto</a>
+            <a href="https://github.com/Alanfredd/Rocket-Desafios/blob/main/Desafio%204.js" target="_blank">🛒 Lista de Compras</a>
+            <a href="html-css/cafeteria/index.html">☕ Cafeteria Yuumel</a>
+            <a href="html-css/tabela-table/index.html">📊 Minha Tabela</a>
+            <a href="html-css/podcast/index.html">🎙️ Meu Podcast</a>
+        </div>
+
+        <a href="https://www.linkedin.com/in/davi-almeida-5b7464330/" target="_blank" class="linkedin-btn">🔗 Meu Linkedin</a>
+    </main>
+
 </body>
 </html>
