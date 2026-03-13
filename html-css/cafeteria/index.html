@@ -7,7 +7,7 @@
         /* CONFIGURAÇÕES GERAIS */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff0f3; /* Rosa claro de fundo */
+            background-color: #fff0f3; 
             margin: 0;
             padding: 20px;
             color: #444;
@@ -19,24 +19,24 @@
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.15); /* Sombra rosada sutil [cite: 13] */
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.15); 
             margin-bottom: 30px;
         }
 
         /* --- DESAFIO 7 & 9: LINKS COM TRANSPARÊNCIA E TRANSIÇÃO --- */
         nav a, footer a {
             text-decoration: none;
-            color: #d63384; /* Rosa escuro */
+            color: #d63384; 
             font-weight: bold;
-            opacity: 0.5; /* Transparência inicial [cite: 14] */
-            transition: all 0.4s ease; /* Suavidade do movimento [cite: 3] */
+            opacity: 0.5; 
+            transition: all 0.4s ease; 
             display: inline-block;
         }
 
         nav a:hover, footer a:hover {
-            opacity: 1; /* Totalmente opaco no hover [cite: 14] */
+            opacity: 1; 
             color: #ff85a1;
-            transform: translateY(-2px); /* Pequena animação [cite: 3] */
+            transform: translateY(-2px);
         }
 
         /* --- DESAFIO 7 & 8: TABELA ESTILO CARD E ZEBRADA --- */
@@ -45,14 +45,12 @@
             border-collapse: collapse;
             margin-top: 20px;
             background-color: #fff;
-            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.1); /* [cite: 13] */
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.1); 
             border-radius: 12px;
             overflow: hidden;
         }
-
-        /* Pseudo-classe para alternar cores das linhas (Desafio 8) */
         tbody tr:nth-child(even) {
-            background-color: #fff5f7; /* [cite: 8] */
+            background-color: #fff5f7; 
         }
 
         th, td {
@@ -74,7 +72,7 @@
         }
 
         h2::after {
-            content: ""; /* Linha decorativa via CSS [cite: 8] */
+            content: ""; 
             position: absolute;
             bottom: 0;
             left: 0;
@@ -84,7 +82,6 @@
             border-radius: 2px;
         }
 
-        /* Destaque para o status 'Fechado' */
         td[rowspan="2"] {
             background-color: #ffebee;
             color: #c62828;
