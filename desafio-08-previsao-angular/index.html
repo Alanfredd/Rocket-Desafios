@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="previsaoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Rocket Previsão</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="PrevisaoController">
+
+    <div class="container">
+        <div class="search-box">
+            <input type="text" ng-model="cidadeBusca" placeholder="Pesquisar cidade..." ng-keydown="$event.keyCode === 13 && buscarTempo()">
+            <button ng-click="buscarTempo()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div ng-show="erro" class="error-msg">{{ erro }}</div>
+        <div ng-show="carregando" class="loading-msg">Sincronizando satélites...</div>
+
+        <div ng-if="dadosTempo" class="weather-card">
+            <div class="header">
+                <h2>{{ dadosTempo.name }}, {{ dadosTempo.sys.country }}</h2>
+                <span>Tempo agora</span>
+            </div>
+
+            <div class="main-info">
+                <div class="temp-group">
+                    <i class="fas fa-cloud-showers-heavy weather-icon"></i>
+                    <span class="temperature">{{ dadosTempo.main.temp | number:0 }}°</span>
+                </div>
+                <div class="description">
+                    {{ dadosTempo.weather[0].description }}
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span>Sensação:</span>
+                    <strong>{{ dadosTempo.main.feels_like | number:0 }}°</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Vento:</span>
+                    <strong>{{ dadosTempo.wind.speed }}km/h</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Umidade:</span>
+                    <strong>{{ dadosTempo.main.humidity }}%</strong>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-pill active">Hoje</button>
+                <button class="btn-pill">Amanhã</button>
+                <button class="btn-pill">15 Dias</button>
+            </div>
+
+            <button class="btn-location">
+                <i class="fas fa-location-crosshairs"></i> Usar minha localização atual
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
