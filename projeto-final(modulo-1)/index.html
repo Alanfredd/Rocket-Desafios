@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="RocketHabitosApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Diário de Hábitos e Emoções</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<link rel="stylesheet" href="style.css">
+<body ng-controller="MainController" class="bg-light">
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">🚀 Diário de Hábitos e Emoções</h1>
+
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3 class="card-title">Novo Registro Diário</h3>
+                <form ng-submit="adicionarRegistro()" name="formRegistro">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Data:</label>
+                            <input type="date" class="form-control" ng-model="novoRegistro.data" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Como você está se sentindo? (1-4):</label>
+                            <select class="form-select" ng-model="novoRegistro.humor" required>
+                                <option value="1">1 - Muito Triste</option>
+                                <option value="2">2 - Neutro</option>
+                                <option value="3">3 - Feliz</option>
+                                <option value="4">4 - Muito Feliz</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Observação (Opcional):</label>
+                            <input type="text" class="form-control" ng-model="novoRegistro.observacao">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5>Hábitos do Dia:</h5>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div ng-repeat="habito in novoRegistro.habitos">
+                                <label class="form-check-label border p-2 rounded bg-white">
+                                    <input type="checkbox" class="form-check-input" ng-model="habito.concluido"> 
+                                    {{ habito.nome }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4 w-100" ng-disabled="formRegistro.$invalid">
+                        Salvar Registro do Dia
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="🔍 Filtrar por data (AAAA-MM-DD)" ng-model="buscaData">
+            </div>
+            <div class="col-md-6">
+                <select class="form-select" ng-model="buscaHumor">
+                    <option value="">Todos os Humores</option>
+                    <option value="1">😢 Muito Triste</option>
+                    <option value="2">😐 Neutro</option>
+                    <option value="3">😊 Feliz</option>
+                    <option value="4">🤩 Muito Feliz</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-responsive bg-white rounded shadow-sm">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Data</th>
+                        <th>Humor</th>
+                        <th>Hábitos Concluídos</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+    <tr ng-repeat="item in registros | filter: { data: buscaData, humor: buscaHumor } | orderBy: '-data' track by $index">
+        <td>{{ item.data | date: 'dd/MM/yyyy' }}</td>
+        <td style="font-size: 1.5rem;">{{ getEmoji(item.humor) }}</td>
+        <td>
+            <span ng-repeat="h in item.habitos" class="badge me-1" 
+                  ng-class="h.concluido ? 'bg-success' : 'bg-secondary'">
+                {{ h.nome }}
+            </span>
+        </td>
+        <td class="text-muted small">{{ item.observacao }}</td>
+    </tr>
+
+    <tr ng-if="(registros | filter: { data: buscaData, humor: buscaHumor }).length === 0">
+        <td colspan="4" class="text-center py-4 text-muted">Nenhum registro encontrado.</td>
+    </tr>
+</tbody>
+</html>
